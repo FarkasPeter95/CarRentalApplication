@@ -1,6 +1,3 @@
--- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2021-03-31 16:28:59.796
-
 -- tables
 -- Table: Car
 CREATE TABLE Car (
