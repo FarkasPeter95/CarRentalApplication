@@ -15,7 +15,7 @@ namespace CarRentalServices
             //Reservation = new HashSet<Reservation>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CarID { get; set; }
 
         [Required]

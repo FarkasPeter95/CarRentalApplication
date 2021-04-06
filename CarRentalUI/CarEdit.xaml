@@ -37,7 +37,7 @@
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="20"/>
                 </Grid.RowDefinitions>
-                <Image x:Name="ImageViewer"></Image>
+                <Image x:Name="ImageViewer" Source="{Binding SelectedItem.Image, ElementName=dgCar}"></Image>
                 <Button x:Name="btnBrowseImage" Content="Új kép" Grid.Row="1" Click="btnBrowseImage_Click"></Button>
                 <Button x:Name="btnDeleteImage" Content="Kép törlése" Grid.Row="2" Click="btnDeleteImage_Click"></Button>
             </Grid>

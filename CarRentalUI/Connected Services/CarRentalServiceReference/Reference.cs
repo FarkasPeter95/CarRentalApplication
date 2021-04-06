@@ -1317,6 +1317,12 @@ namespace CarRentalUI.CarRentalServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentalService/GetCars", ReplyAction="http://tempuri.org/IRentalService/GetCarsResponse")]
         System.Threading.Tasks.Task<CarRentalUI.CarRentalServiceReference.Car[]> GetCarsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentalService/AddCar", ReplyAction="http://tempuri.org/IRentalService/AddCarResponse")]
+        int AddCar(CarRentalUI.CarRentalServiceReference.Car car);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentalService/AddCar", ReplyAction="http://tempuri.org/IRentalService/AddCarResponse")]
+        System.Threading.Tasks.Task<int> AddCarAsync(CarRentalUI.CarRentalServiceReference.Car car);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentalService/UpdateCar", ReplyAction="http://tempuri.org/IRentalService/UpdateCarResponse")]
         int UpdateCar(CarRentalUI.CarRentalServiceReference.Car currentCar);
         
@@ -1375,6 +1381,14 @@ namespace CarRentalUI.CarRentalServiceReference {
         
         public System.Threading.Tasks.Task<CarRentalUI.CarRentalServiceReference.Car[]> GetCarsAsync() {
             return base.Channel.GetCarsAsync();
+        }
+        
+        public int AddCar(CarRentalUI.CarRentalServiceReference.Car car) {
+            return base.Channel.AddCar(car);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddCarAsync(CarRentalUI.CarRentalServiceReference.Car car) {
+            return base.Channel.AddCarAsync(car);
         }
         
         public int UpdateCar(CarRentalUI.CarRentalServiceReference.Car currentCar) {

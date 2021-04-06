@@ -26,6 +26,7 @@ namespace CarRentalUI
 
 
         private RentalServiceClient service = new RentalServiceClient();
+        string imgLocation = "";
 
 
         public CarEdit()
@@ -52,7 +53,6 @@ namespace CarRentalUI
             tbCarFilter.Text = "";
             tbImagePath.Text = "";
             dgCar.SelectedIndex = -1;
-        //    tbCarID.Text = Convert.ToString(service.NextCarId());
             ImageViewer.Source = null;
             btnSave.IsEnabled = false;
             btnDelete.IsEnabled = false;
@@ -78,23 +78,20 @@ namespace CarRentalUI
                 c.Gearbox = tbGearbox.Text;
                 c.Horsepower = Convert.ToInt32(tbHorsepower.Text);
                 c.Image = "nincs";        //Még nem jó                 
-
+                if (imgLocation != "")   
+                {
+                    string path = "C:/CarRentalImages/" + c.Brand + c.Model + c.ProductionYear + System.IO.Path.GetExtension(imgLocation);
+                    System.IO.File.Copy(imgLocation, path, true);
+                    c.Image = path;
+                }
                 if (service.AddCar(c) == 1)
                 {
-                    if (imgLocation != "")
-                    {
-                        string path = "C:/CarRentalImages/" + tbCarID.Text + System.IO.Path.GetExtension(imgLocation);
-                        System.IO.File.Copy(imgLocation, path, true);
-                        c.Id = Convert.ToInt32(tbCarID.Text);
-                        c.Image = path;
-                        service.UpdateCarImage(c);
-
-                    }
-                    dgCar.ItemsSource = service.GetAllCars();
+                    
+                    dgCar.ItemsSource = service.GetCars();
                     System.Windows.MessageBox.Show("Autó hozzáadva", "Sikeres felvétel", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 }
-                else if (service.AddCar(c) == 0)
+                else
                 {
                     System.Windows.MessageBox.Show("Hozzáadás nem lehetséges, nem megfelelő adatok!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
 
@@ -124,6 +121,7 @@ namespace CarRentalUI
                                               MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
+                    ImageViewer.Source = null;
                     service.DeleteCar(list[index].CarID);
                     if (list[index].Image != "")
                     {
@@ -148,27 +146,35 @@ namespace CarRentalUI
                 var list = service.GetCars();
                 var c = new Car
                 {
-                  CarID          =  list[index].CarID,                   
-                  LicensePlate   =  tbLicensePlate.Text,                 
-                  CategoryID     =  list[index].CategoryID,   //Még nem jó        
-                  LocationID     =  list[index].LocationID,    //Még nem jó                          
-                  Brand          =  tbBrand.Text,                                    
-                  Model          =  tbModel.Text,                                       
-                  ProductionYear =  Convert.ToInt32(tbYear.Text),                                    
-                  KmClock        =  Convert.ToInt32(tbKmClock.Text),                                    
-                  Fuel           =  cobFuel.Text,                         
-                  Color          =  tbColor.Text,                                    
-                  Seats          =  Convert.ToInt32(tbSeats.Text),                       
-                  Gearbox        =  tbGearbox.Text,          
-                  Horsepower     =  Convert.ToInt32(tbHorsepower.Text),
-                  Image          =  "nincs",        //Még nem jó                   
+                    CarID = list[index].CarID,
+                    LicensePlate = tbLicensePlate.Text,
+                    CategoryID = list[index].CategoryID,   //Még nem jó        
+                    LocationID = list[index].LocationID,    //Még nem jó                          
+                    Brand = tbBrand.Text,
+                    Model = tbModel.Text,
+                    ProductionYear = Convert.ToInt32(tbYear.Text),
+                    KmClock = Convert.ToInt32(tbKmClock.Text),
+                    Fuel = cobFuel.Text,
+                    Color = tbColor.Text,
+                    Seats = Convert.ToInt32(tbSeats.Text),
+                    Gearbox = tbGearbox.Text,
+                    Horsepower = Convert.ToInt32(tbHorsepower.Text),
                 };
+                  if (imgLocation != "")
+                  {
+                    string path = "C:/CarRentalImages/" + c.Brand + c.Model + c.ProductionYear + System.IO.Path.GetExtension(imgLocation);
+                    System.IO.File.Copy(imgLocation, path, true);
+                    c.Image = path;
+                  }
+                  else
+                  {
+                    c.Image = "nincs";   //Még nem jó 
+                  }                                                  
                 service.UpdateCar(c);
                 dgCar.ItemsSource = service.GetCars().ToList();
             }
         }
 
-        string imgLocation = "";
         private void btnBrowseImage_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -183,14 +189,38 @@ namespace CarRentalUI
 
         private void btnDeleteImage_Click(object sender, RoutedEventArgs e)
         {
+            //Car c = new Car();
 
+            //c.Brand = tbBrand.Text;
+            //c.Model = tbModel.Text;
+
+            //MessageBoxResult result = System.Windows.MessageBox.Show("Biztos, hogy törli a(z) " + c.Brand + " " + c.Model + " autó képét?",
+            //                                 "Megerősítés",
+            //                               MessageBoxButton.YesNo,
+            //                               MessageBoxImage.Question);
+            //if (result == MessageBoxResult.Yes)
+            //{
+            //    ImageViewer.Source = null;
+            //    imgLocation = "";
+            //    File.Delete(c.Image);
+            //    //tbImagePath.Text = "";
+            //    c.Image = "nincs";     //Még nem jó
+            //    service.UpdateCar(c);
+            //    dgCar.ItemsSource = service.GetCars();
+            //}
         }
 
         private void dgCar_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            btnDelete.IsEnabled = true;
             btnSave.IsEnabled = true;
+            btnDelete.IsEnabled = true;
             btnAdd.IsEnabled = false;
+            imgLocation = "";
+            //if (tbImagePath.Text == "")
+            //{
+            //    btnDeleteImage.IsEnabled = false;
+            //}
+            //else btnDeleteImage.IsEnabled = true;
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)

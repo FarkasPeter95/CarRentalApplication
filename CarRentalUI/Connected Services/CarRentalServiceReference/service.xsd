@@ -13,10 +13,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddCar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CarRentalServices" minOccurs="0" name="car" nillable="true" type="q2:Car" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddCarResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="UpdateCar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CarRentalServices" minOccurs="0" name="currentCar" nillable="true" type="q2:Car" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CarRentalServices" minOccurs="0" name="currentCar" nillable="true" type="q3:Car" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -49,14 +63,14 @@
   <xs:element name="GetClientsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CarRentalServices" minOccurs="0" name="GetClientsResult" nillable="true" type="q3:ArrayOfClient" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CarRentalServices" minOccurs="0" name="GetClientsResult" nillable="true" type="q4:ArrayOfClient" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateClient">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CarRentalServices" minOccurs="0" name="currentClient" nillable="true" type="q4:Client" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CarRentalServices" minOccurs="0" name="currentClient" nillable="true" type="q5:Client" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

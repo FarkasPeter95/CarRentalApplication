@@ -51,21 +51,14 @@ namespace CarRentalServices
 
         public int AddCar(Car car)
         {
-            try
-            {
-              
-            }
+           
+           using (var ctx = new CarRentalDbModel())
+           {
 
-
-            catch (System.Data.SqlClient.SqlException)
-            {
-
-                return 0;
-            }
-            finally
-            {
-               
-            }
+               ctx.Car.Add(car);
+               return ctx.SaveChanges();
+           }
+          
         }
 
         public int UpdateCar(Car currentCar)
