@@ -1,6 +1,6 @@
 # CarRentalApplication
 
-CarRentalService Appp.configban a connectionStringben át kell írni a gépnevet, hogy működjön az adatbázis.
+CarRentalService App.config-ban a connectionStringben át kell írni a gépnevet, hogy működjön az adatbázis.
 
 Leírás: A szakdolgozatban egy olyan alkalmazás kerül megvalósításra, mely bemutatja a WCF szolgáltatások típusait,
 lehetőségeit és használatának módjait egy WPF RIA (C#) alkalmazásban. Az alkalmazás egy autókölcsönző cég számára nyújt segítséget az autók,
