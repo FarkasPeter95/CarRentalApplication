@@ -1,4 +1,4 @@
-namespace CarRentalServices
+namespace CarRentalServices.Model
 {
     using System;
     using System.Collections.Generic;
@@ -15,15 +15,14 @@ namespace CarRentalServices
             Car = new HashSet<Car>();
         }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int CategoryID { get; set; }
+        public int Id { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [StringLength(128)]
         public string CategoryName { get; set; }
 
-        public int RentalPrice { get; set; }
+        public string CategoryDescription { get; set; }
+
+        public decimal? RentalPrice { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Car> Car { get; set; }

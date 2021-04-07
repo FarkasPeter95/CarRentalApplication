@@ -107,7 +107,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\CarRentalServiceReference\CarRentalServices.xsd">
+    <None Include="Connected Services\CarRentalServiceReference\CarRentalServices.Model.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\CarRentalServiceReference\CarRentalUI.CarRentalServiceReference.Car.datasource">

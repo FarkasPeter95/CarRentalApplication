@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarRentalServices.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace CarRentalServices
         public List<Car> GetCars()
         {
             List<Car> carList = new List<Car>();
-            using (var ctx = new CarRentalDbModel())
+            using (var ctx = new CarRentalModel())
             {
 
                 var lstCar = from k in ctx.Car select k;
@@ -24,10 +25,10 @@ namespace CarRentalServices
                     try
                     {
                         Car car = new Car();
-                        car.CarID          = item.CarID;         
+                        car.Id          = item.Id;         
                         car.LicensePlate   = item.LicensePlate;
-                        car.CategoryID     = item.CategoryID;
-                        car.LocationID     = item.LocationID;
+                        car.CategoryId     = item.CategoryId;
+                        car.LocationId     = item.LocationId;
                         car.Brand          = item.Brand;
                         car.Model          = item.Model;
                         car.ProductionYear = item.ProductionYear;
@@ -38,6 +39,7 @@ namespace CarRentalServices
                         car.Gearbox        = item.Gearbox;
                         car.Horsepower     = item.Horsepower;
                         car.Image          = item.Image;
+                        car.Remark         = item.Remark;
                         carList.Add(car);
                     }
                     catch (Exception ex)
@@ -52,7 +54,7 @@ namespace CarRentalServices
         public int AddCar(Car car)
         {
            
-           using (var ctx = new CarRentalDbModel())
+           using (var ctx = new CarRentalModel())
            {
 
                ctx.Car.Add(car);
@@ -63,7 +65,7 @@ namespace CarRentalServices
 
         public int UpdateCar(Car currentCar)
         {
-            using (var ctx = new CarRentalDbModel())
+            using (var ctx = new CarRentalModel())
             {
                 ctx.Entry(currentCar).State = EntityState.Modified;
 
@@ -76,17 +78,14 @@ namespace CarRentalServices
         public int DeleteCar(int carId)
         {
             int Retval = -1;
-            using (var ctx = new CarRentalDbModel())
+            using (var ctx = new CarRentalModel())
             {
-                var cust = (from c in ctx.Car
-                            where c.CarID == carId
+                var curCar = (from c in ctx.Car
+                            where c.Id == carId
                             select c).FirstOrDefault();
-
-                Car usrdtl = new Car();
-                usrdtl.CarID = carId;
-                if (cust != null)
+                if (curCar != null)
                 {
-                    ctx.Car.Remove(cust);
+                    ctx.Car.Remove(curCar);
                     ctx.SaveChanges();
                     Retval = 0;
                 }
@@ -99,7 +98,7 @@ namespace CarRentalServices
         public List<Client> GetClients()
         {
                 List<Client> clientList = new List<Client>();
-                using (var ctx = new CarRentalDbModel())
+                using (var ctx = new CarRentalModel())
                 {
 
                     var lstClient = from k in ctx.Client select k;
@@ -109,13 +108,15 @@ namespace CarRentalServices
                         try
                         {
                             Client cl = new Client();
-                            cl.ClientID = item.ClientID;
+                            cl.Id = item.Id;
                             cl.IdCardNumber = item.IdCardNumber;
-                            cl.FullName     = item.FullName;
+                            cl.FirstName = item.FirstName;
+                            cl.SurName = item.SurName;
                             cl.Birthdate = item.Birthdate;
                             cl.ZipCode = item.ZipCode;
                             cl.City = item.City;
-                            cl.Adress = item.Adress;
+                            cl.AdressLine1 = item.AdressLine1;
+                            cl.AdressLine2 = item.AdressLine2;
                             cl.PhoneNumber = item.PhoneNumber;
                             cl.LicenseNumber = item.LicenseNumber;
                             cl.LicenseIssueDate = item.LicenseIssueDate;
@@ -137,7 +138,7 @@ namespace CarRentalServices
 
         public int UpdateClient(Client currentClient)
         {         
-                using (var ctx = new CarRentalDbModel())
+                using (var ctx = new CarRentalModel())
                 {
                     ctx.Entry(currentClient).State = EntityState.Modified;
 

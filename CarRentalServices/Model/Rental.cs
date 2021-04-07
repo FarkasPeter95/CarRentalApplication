@@ -1,4 +1,4 @@
-namespace CarRentalServices
+namespace CarRentalServices.Model
 {
     using System;
     using System.Collections.Generic;
@@ -9,29 +9,28 @@ namespace CarRentalServices
     [Table("Rental")]
     public partial class Rental
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int RentalID { get; set; }
+        public int Id { get; set; }
 
-        public int EmployeeID { get; set; }
+        public int? EmployeeId { get; set; }
 
-        public int ReservationID { get; set; }
+        public int? ReservationId { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime RentalDate { get; set; }
+        [Column(TypeName = "timestamp")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [MaxLength(8)]
+        public byte[] RentalCreate { get; set; }
 
-        public int KmsDriven { get; set; }
+        public int? KmsDriven { get; set; }
 
-        public int Cost { get; set; }
+        public decimal? Cost { get; set; }
 
-        public int Discount { get; set; }
+        public decimal? Discount { get; set; }
 
-        public int Total { get; set; }
+        public decimal? Total { get; set; }
 
-        public int Advance { get; set; }
+        public decimal? Advance { get; set; }
 
-        public int Balance { get; set; }
-
-        public int Status { get; set; }
+        public bool? Status { get; set; }
 
         public virtual Employee Employee { get; set; }
 

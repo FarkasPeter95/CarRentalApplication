@@ -1,4 +1,4 @@
-namespace CarRentalServices
+namespace CarRentalServices.Model
 {
     using System;
     using System.Collections.Generic;
@@ -17,23 +17,24 @@ namespace CarRentalServices
             Reservation1 = new HashSet<Reservation>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int LocationID { get; set; }
+        public int Id { get; set; }
 
-        [Required]
-        [StringLength(10)]
+        [StringLength(128)]
+        public string LocationName { get; set; }
+
+        [StringLength(50)]
         public string ZipCode { get; set; }
 
-        [Required]
         [StringLength(30)]
         public string City { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string Adress { get; set; }
+        [StringLength(128)]
+        public string AdressLine1 { get; set; }
 
-        [Required]
-        [StringLength(12)]
+        [StringLength(128)]
+        public string AdressLine2 { get; set; }
+
+        [StringLength(50)]
         public string PhoneNumber { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

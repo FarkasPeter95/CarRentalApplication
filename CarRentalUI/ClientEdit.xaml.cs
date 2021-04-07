@@ -71,13 +71,13 @@ namespace CarRentalUI
                 var list = service.GetClients();
                 var cl = new Client
                 {
-                    ClientID = list[index].ClientID,
+                    Id = list[index].Id,
                     IdCardNumber = list[index].IdCardNumber,
-                    FullName = tbName.Text,
+                    FirstName = tbName.Text,        //SurName még kell
                     Birthdate = dpBirthDate.DisplayDate,
                     ZipCode = list[index].ZipCode,
                     City = list[index].City,
-                    Adress = list[index].Adress,
+                    AdressLine1 = list[index].AdressLine1,  //AdressLine2 még kell
                     PhoneNumber = list[index].PhoneNumber,
                     LicenseNumber = list[index].LicenseNumber,
                     LicenseIssueDate = list[index].LicenseIssueDate,

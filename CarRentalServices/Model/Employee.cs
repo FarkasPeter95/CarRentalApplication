@@ -1,4 +1,4 @@
-namespace CarRentalServices
+namespace CarRentalServices.Model
 {
     using System;
     using System.Collections.Generic;
@@ -15,30 +15,30 @@ namespace CarRentalServices
             Rental = new HashSet<Rental>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int EmployeeID { get; set; }
+        public int Id { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string FullName { get; set; }
+        [StringLength(128)]
+        public string FirstName { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [StringLength(128)]
+        public string SurName { get; set; }
+
+        [StringLength(128)]
         public string UserName { get; set; }
 
-        [Required]
-        [MaxLength(64)]
-        public byte[] PasswordHash { get; set; }
+        [StringLength(128)]
+        public string PasswordHash { get; set; }
 
-        public Guid Salt { get; set; }
+        [StringLength(128)]
+        public string Salt { get; set; }
 
-        [Required]
-        [StringLength(10)]
+        [StringLength(50)]
         public string PhoneNumber { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [StringLength(128)]
         public string EmailAdress { get; set; }
+
+        public bool? AdminStatus { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rental> Rental { get; set; }

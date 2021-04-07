@@ -1,4 +1,4 @@
-namespace CarRentalServices
+namespace CarRentalServices.Model
 {
     using System;
     using System.Collections.Generic;
@@ -12,56 +12,50 @@ namespace CarRentalServices
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Car()
         {
-            //Reservation = new HashSet<Reservation>();
+            Reservation = new HashSet<Reservation>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CarID { get; set; }
+        public int Id { get; set; }
 
-        [Required]
-        [StringLength(10)]
+        [StringLength(50)]
         public string LicensePlate { get; set; }
 
-        public int CategoryID { get; set; }
+        public int? CategoryId { get; set; }
 
-        public int LocationID { get; set; }
+        public int? LocationId { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [StringLength(128)]
         public string Brand { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [StringLength(128)]
         public string Model { get; set; }
 
-        public int ProductionYear { get; set; }
+        public int? ProductionYear { get; set; }
 
-        public int KmClock { get; set; }
+        public int? KmClock { get; set; }
 
-        [Required]
-        [StringLength(20)]
+        [StringLength(128)]
         public string Fuel { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [StringLength(128)]
         public string Color { get; set; }
 
-        public int Seats { get; set; }
+        public int? Seats { get; set; }
 
-        [Required]
-        [StringLength(20)]
+        [StringLength(128)]
         public string Gearbox { get; set; }
 
-        public int Horsepower { get; set; }
+        public int? Horsepower { get; set; }
 
-        [Required]
         public string Image { get; set; }
 
-        //public virtual CarCategory CarCategory { get; set; }
+        public string Remark { get; set; }
 
-        //public virtual Location Location { get; set; }
+        public virtual CarCategory CarCategory { get; set; }
 
-        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        //public virtual ICollection<Reservation> Reservation { get; set; }
+        public virtual Location Location { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reservation> Reservation { get; set; }
     }
 }

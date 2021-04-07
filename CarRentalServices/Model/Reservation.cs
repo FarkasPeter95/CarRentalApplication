@@ -1,4 +1,4 @@
-namespace CarRentalServices
+namespace CarRentalServices.Model
 {
     using System;
     using System.Collections.Generic;
@@ -16,21 +16,21 @@ namespace CarRentalServices
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ReservationID { get; set; }
+        public int Id { get; set; }
 
-        public int ClientID { get; set; }
+        public int? ClientId { get; set; }
 
-        public int CarID { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime StartDate { get; set; }
+        public int? CarId { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime EndDate { get; set; }
+        public DateTime? StartDate { get; set; }
 
-        public int PickUpLocationID { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime? EndDate { get; set; }
 
-        public int DropOffLocationID { get; set; }
+        public int? PickUpLocationId { get; set; }
+
+        public int? DropOffLocationId { get; set; }
 
         public virtual Car Car { get; set; }
 

@@ -25,7 +25,7 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="73c12c03-7283-4653-b0d2-8ab1941d13f0" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CarRentalServices/Service1/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="572b431a-774e-4c6c-8ff9-d3a6ebdab011" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CarRentalServices/Service1/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="6a2e0ed0-2632-4e0b-a253-c77326146d68" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CarRentalServices/Service1/mex" />
-    <MetadataFile FileName="CarRentalServices.xsd" MetadataType="Schema" ID="583523a5-8106-4243-904f-9cea95e9958e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CarRentalServices/Service1/mex" />
+    <MetadataFile FileName="CarRentalServices.Model.xsd" MetadataType="Schema" ID="f9d617dc-9eea-4081-a470-bd4e5b82dd3c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CarRentalServices/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -66,8 +66,8 @@ namespace CarRentalUI
             try
             {
                 c.LicensePlate = tbLicensePlate.Text;
-                c.CategoryID = 1;   //Még nem jó       
-                c.LocationID = 1;    //Még nem jó      
+                c.CategoryId = 1;   //Még nem jó       
+                c.LocationId = 1;    //Még nem jó      
                 c.Brand = tbBrand.Text;
                 c.Model = tbModel.Text;
                 c.ProductionYear = Convert.ToInt32(tbYear.Text);
@@ -122,7 +122,7 @@ namespace CarRentalUI
                 if (result == MessageBoxResult.Yes)
                 {
                     ImageViewer.Source = null;
-                    service.DeleteCar(list[index].CarID);
+                    service.DeleteCar(list[index].Id);
                     if (list[index].Image != "")
                     {
                         File.Delete(list[index].Image);
@@ -146,10 +146,10 @@ namespace CarRentalUI
                 var list = service.GetCars();
                 var c = new Car
                 {
-                    CarID = list[index].CarID,
+                    Id = list[index].Id,
                     LicensePlate = tbLicensePlate.Text,
-                    CategoryID = list[index].CategoryID,   //Még nem jó        
-                    LocationID = list[index].LocationID,    //Még nem jó                          
+                    CategoryId = list[index].CategoryId,   //Még nem jó        
+                    LocationId = list[index].LocationId,    //Még nem jó                          
                     Brand = tbBrand.Text,
                     Model = tbModel.Text,
                     ProductionYear = Convert.ToInt32(tbYear.Text),

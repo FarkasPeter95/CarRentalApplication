@@ -15,7 +15,7 @@ namespace CarRentalUI.CarRentalServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Car", Namespace="http://schemas.datacontract.org/2004/07/CarRentalServices")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Car", Namespace="http://schemas.datacontract.org/2004/07/CarRentalServices.Model")]
     [System.SerializableAttribute()]
     public partial class Car : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -26,10 +26,10 @@ namespace CarRentalUI.CarRentalServiceReference {
         private string BrandField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CarIDField;
+        private CarRentalUI.CarRentalServiceReference.CarCategory CarCategoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CategoryIDField;
+        private System.Nullable<int> CategoryIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ColorField;
@@ -41,28 +41,40 @@ namespace CarRentalUI.CarRentalServiceReference {
         private string GearboxField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int HorsepowerField;
+        private System.Nullable<int> HorsepowerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ImageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int KmClockField;
+        private System.Nullable<int> KmClockField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LicensePlateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int LocationIDField;
+        private CarRentalUI.CarRentalServiceReference.Location LocationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> LocationIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ModelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ProductionYearField;
+        private System.Nullable<int> ProductionYearField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int SeatsField;
+        private string RemarkField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CarRentalUI.CarRentalServiceReference.Reservation[] ReservationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> SeatsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -88,27 +100,27 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CarID {
+        public CarRentalUI.CarRentalServiceReference.CarCategory CarCategory {
             get {
-                return this.CarIDField;
+                return this.CarCategoryField;
             }
             set {
-                if ((this.CarIDField.Equals(value) != true)) {
-                    this.CarIDField = value;
-                    this.RaisePropertyChanged("CarID");
+                if ((object.ReferenceEquals(this.CarCategoryField, value) != true)) {
+                    this.CarCategoryField = value;
+                    this.RaisePropertyChanged("CarCategory");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CategoryID {
+        public System.Nullable<int> CategoryId {
             get {
-                return this.CategoryIDField;
+                return this.CategoryIdField;
             }
             set {
-                if ((this.CategoryIDField.Equals(value) != true)) {
-                    this.CategoryIDField = value;
-                    this.RaisePropertyChanged("CategoryID");
+                if ((this.CategoryIdField.Equals(value) != true)) {
+                    this.CategoryIdField = value;
+                    this.RaisePropertyChanged("CategoryId");
                 }
             }
         }
@@ -153,7 +165,7 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Horsepower {
+        public System.Nullable<int> Horsepower {
             get {
                 return this.HorsepowerField;
             }
@@ -161,6 +173,19 @@ namespace CarRentalUI.CarRentalServiceReference {
                 if ((this.HorsepowerField.Equals(value) != true)) {
                     this.HorsepowerField = value;
                     this.RaisePropertyChanged("Horsepower");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -179,7 +204,7 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int KmClock {
+        public System.Nullable<int> KmClock {
             get {
                 return this.KmClockField;
             }
@@ -205,14 +230,27 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int LocationID {
+        public CarRentalUI.CarRentalServiceReference.Location Location {
             get {
-                return this.LocationIDField;
+                return this.LocationField;
             }
             set {
-                if ((this.LocationIDField.Equals(value) != true)) {
-                    this.LocationIDField = value;
-                    this.RaisePropertyChanged("LocationID");
+                if ((object.ReferenceEquals(this.LocationField, value) != true)) {
+                    this.LocationField = value;
+                    this.RaisePropertyChanged("Location");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> LocationId {
+            get {
+                return this.LocationIdField;
+            }
+            set {
+                if ((this.LocationIdField.Equals(value) != true)) {
+                    this.LocationIdField = value;
+                    this.RaisePropertyChanged("LocationId");
                 }
             }
         }
@@ -231,7 +269,7 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ProductionYear {
+        public System.Nullable<int> ProductionYear {
             get {
                 return this.ProductionYearField;
             }
@@ -244,7 +282,33 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Seats {
+        public string Remark {
+            get {
+                return this.RemarkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RemarkField, value) != true)) {
+                    this.RemarkField = value;
+                    this.RaisePropertyChanged("Remark");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CarRentalUI.CarRentalServiceReference.Reservation[] Reservation {
+            get {
+                return this.ReservationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReservationField, value) != true)) {
+                    this.ReservationField = value;
+                    this.RaisePropertyChanged("Reservation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Seats {
             get {
                 return this.SeatsField;
             }
@@ -268,57 +332,27 @@ namespace CarRentalUI.CarRentalServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Client", Namespace="http://schemas.datacontract.org/2004/07/CarRentalServices")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CarCategory", Namespace="http://schemas.datacontract.org/2004/07/CarRentalServices.Model")]
     [System.SerializableAttribute()]
-    public partial class Client : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class CarCategory : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AdressField;
+        private CarRentalUI.CarRentalServiceReference.Car[] CarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime BirthdateField;
+        private string CategoryDescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CityField;
+        private string CategoryNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ClientIDField;
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EmailAdressField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FullNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdCardNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime LicenseIssueDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LicenseNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] PasswordHashField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PhoneNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CarRentalUI.CarRentalServiceReference.Reservation[] ReservationField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Guid SaltField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UserNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ZipCodeField;
+        private System.Nullable<decimal> RentalPriceField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -331,267 +365,7 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Adress {
-            get {
-                return this.AdressField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AdressField, value) != true)) {
-                    this.AdressField = value;
-                    this.RaisePropertyChanged("Adress");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Birthdate {
-            get {
-                return this.BirthdateField;
-            }
-            set {
-                if ((this.BirthdateField.Equals(value) != true)) {
-                    this.BirthdateField = value;
-                    this.RaisePropertyChanged("Birthdate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string City {
-            get {
-                return this.CityField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CityField, value) != true)) {
-                    this.CityField = value;
-                    this.RaisePropertyChanged("City");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ClientID {
-            get {
-                return this.ClientIDField;
-            }
-            set {
-                if ((this.ClientIDField.Equals(value) != true)) {
-                    this.ClientIDField = value;
-                    this.RaisePropertyChanged("ClientID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EmailAdress {
-            get {
-                return this.EmailAdressField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EmailAdressField, value) != true)) {
-                    this.EmailAdressField = value;
-                    this.RaisePropertyChanged("EmailAdress");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FullName {
-            get {
-                return this.FullNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FullNameField, value) != true)) {
-                    this.FullNameField = value;
-                    this.RaisePropertyChanged("FullName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IdCardNumber {
-            get {
-                return this.IdCardNumberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IdCardNumberField, value) != true)) {
-                    this.IdCardNumberField = value;
-                    this.RaisePropertyChanged("IdCardNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime LicenseIssueDate {
-            get {
-                return this.LicenseIssueDateField;
-            }
-            set {
-                if ((this.LicenseIssueDateField.Equals(value) != true)) {
-                    this.LicenseIssueDateField = value;
-                    this.RaisePropertyChanged("LicenseIssueDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LicenseNumber {
-            get {
-                return this.LicenseNumberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LicenseNumberField, value) != true)) {
-                    this.LicenseNumberField = value;
-                    this.RaisePropertyChanged("LicenseNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] PasswordHash {
-            get {
-                return this.PasswordHashField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PasswordHashField, value) != true)) {
-                    this.PasswordHashField = value;
-                    this.RaisePropertyChanged("PasswordHash");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PhoneNumber {
-            get {
-                return this.PhoneNumberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PhoneNumberField, value) != true)) {
-                    this.PhoneNumberField = value;
-                    this.RaisePropertyChanged("PhoneNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CarRentalUI.CarRentalServiceReference.Reservation[] Reservation {
-            get {
-                return this.ReservationField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ReservationField, value) != true)) {
-                    this.ReservationField = value;
-                    this.RaisePropertyChanged("Reservation");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Guid Salt {
-            get {
-                return this.SaltField;
-            }
-            set {
-                if ((this.SaltField.Equals(value) != true)) {
-                    this.SaltField = value;
-                    this.RaisePropertyChanged("Salt");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserName {
-            get {
-                return this.UserNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
-                    this.UserNameField = value;
-                    this.RaisePropertyChanged("UserName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ZipCode {
-            get {
-                return this.ZipCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ZipCodeField, value) != true)) {
-                    this.ZipCodeField = value;
-                    this.RaisePropertyChanged("ZipCode");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Reservation", Namespace="http://schemas.datacontract.org/2004/07/CarRentalServices")]
-    [System.SerializableAttribute()]
-    public partial class Reservation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CarRentalUI.CarRentalServiceReference.Car CarField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CarIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CarRentalUI.CarRentalServiceReference.Client ClientField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ClientIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int DropOffLocationIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime EndDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CarRentalUI.CarRentalServiceReference.Location LocationField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CarRentalUI.CarRentalServiceReference.Location Location1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int PickUpLocationIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CarRentalUI.CarRentalServiceReference.Rental[] RentalField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ReservationIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime StartDateField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CarRentalUI.CarRentalServiceReference.Car Car {
+        public CarRentalUI.CarRentalServiceReference.Car[] Car {
             get {
                 return this.CarField;
             }
@@ -604,144 +378,53 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CarID {
+        public string CategoryDescription {
             get {
-                return this.CarIDField;
+                return this.CategoryDescriptionField;
             }
             set {
-                if ((this.CarIDField.Equals(value) != true)) {
-                    this.CarIDField = value;
-                    this.RaisePropertyChanged("CarID");
+                if ((object.ReferenceEquals(this.CategoryDescriptionField, value) != true)) {
+                    this.CategoryDescriptionField = value;
+                    this.RaisePropertyChanged("CategoryDescription");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public CarRentalUI.CarRentalServiceReference.Client Client {
+        public string CategoryName {
             get {
-                return this.ClientField;
+                return this.CategoryNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.ClientField, value) != true)) {
-                    this.ClientField = value;
-                    this.RaisePropertyChanged("Client");
+                if ((object.ReferenceEquals(this.CategoryNameField, value) != true)) {
+                    this.CategoryNameField = value;
+                    this.RaisePropertyChanged("CategoryName");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ClientID {
+        public int Id {
             get {
-                return this.ClientIDField;
+                return this.IdField;
             }
             set {
-                if ((this.ClientIDField.Equals(value) != true)) {
-                    this.ClientIDField = value;
-                    this.RaisePropertyChanged("ClientID");
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int DropOffLocationID {
+        public System.Nullable<decimal> RentalPrice {
             get {
-                return this.DropOffLocationIDField;
+                return this.RentalPriceField;
             }
             set {
-                if ((this.DropOffLocationIDField.Equals(value) != true)) {
-                    this.DropOffLocationIDField = value;
-                    this.RaisePropertyChanged("DropOffLocationID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime EndDate {
-            get {
-                return this.EndDateField;
-            }
-            set {
-                if ((this.EndDateField.Equals(value) != true)) {
-                    this.EndDateField = value;
-                    this.RaisePropertyChanged("EndDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CarRentalUI.CarRentalServiceReference.Location Location {
-            get {
-                return this.LocationField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LocationField, value) != true)) {
-                    this.LocationField = value;
-                    this.RaisePropertyChanged("Location");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CarRentalUI.CarRentalServiceReference.Location Location1 {
-            get {
-                return this.Location1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Location1Field, value) != true)) {
-                    this.Location1Field = value;
-                    this.RaisePropertyChanged("Location1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int PickUpLocationID {
-            get {
-                return this.PickUpLocationIDField;
-            }
-            set {
-                if ((this.PickUpLocationIDField.Equals(value) != true)) {
-                    this.PickUpLocationIDField = value;
-                    this.RaisePropertyChanged("PickUpLocationID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CarRentalUI.CarRentalServiceReference.Rental[] Rental {
-            get {
-                return this.RentalField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RentalField, value) != true)) {
-                    this.RentalField = value;
-                    this.RaisePropertyChanged("Rental");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ReservationID {
-            get {
-                return this.ReservationIDField;
-            }
-            set {
-                if ((this.ReservationIDField.Equals(value) != true)) {
-                    this.ReservationIDField = value;
-                    this.RaisePropertyChanged("ReservationID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime StartDate {
-            get {
-                return this.StartDateField;
-            }
-            set {
-                if ((this.StartDateField.Equals(value) != true)) {
-                    this.StartDateField = value;
-                    this.RaisePropertyChanged("StartDate");
+                if ((this.RentalPriceField.Equals(value) != true)) {
+                    this.RentalPriceField = value;
+                    this.RaisePropertyChanged("RentalPrice");
                 }
             }
         }
@@ -758,7 +441,7 @@ namespace CarRentalUI.CarRentalServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Location", Namespace="http://schemas.datacontract.org/2004/07/CarRentalServices")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Location", Namespace="http://schemas.datacontract.org/2004/07/CarRentalServices.Model")]
     [System.SerializableAttribute()]
     public partial class Location : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -766,7 +449,10 @@ namespace CarRentalUI.CarRentalServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AdressField;
+        private string AdressLine1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdressLine2Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private CarRentalUI.CarRentalServiceReference.Car[] CarField;
@@ -775,7 +461,10 @@ namespace CarRentalUI.CarRentalServiceReference {
         private string CityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int LocationIDField;
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LocationNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PhoneNumberField;
@@ -800,14 +489,27 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Adress {
+        public string AdressLine1 {
             get {
-                return this.AdressField;
+                return this.AdressLine1Field;
             }
             set {
-                if ((object.ReferenceEquals(this.AdressField, value) != true)) {
-                    this.AdressField = value;
-                    this.RaisePropertyChanged("Adress");
+                if ((object.ReferenceEquals(this.AdressLine1Field, value) != true)) {
+                    this.AdressLine1Field = value;
+                    this.RaisePropertyChanged("AdressLine1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AdressLine2 {
+            get {
+                return this.AdressLine2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AdressLine2Field, value) != true)) {
+                    this.AdressLine2Field = value;
+                    this.RaisePropertyChanged("AdressLine2");
                 }
             }
         }
@@ -839,14 +541,27 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int LocationID {
+        public int Id {
             get {
-                return this.LocationIDField;
+                return this.IdField;
             }
             set {
-                if ((this.LocationIDField.Equals(value) != true)) {
-                    this.LocationIDField = value;
-                    this.RaisePropertyChanged("LocationID");
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LocationName {
+            get {
+                return this.LocationNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LocationNameField, value) != true)) {
+                    this.LocationNameField = value;
+                    this.RaisePropertyChanged("LocationName");
                 }
             }
         }
@@ -915,51 +630,48 @@ namespace CarRentalUI.CarRentalServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Rental", Namespace="http://schemas.datacontract.org/2004/07/CarRentalServices")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Reservation", Namespace="http://schemas.datacontract.org/2004/07/CarRentalServices.Model")]
     [System.SerializableAttribute()]
-    public partial class Rental : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Reservation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int AdvanceField;
+        private CarRentalUI.CarRentalServiceReference.Car CarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int BalanceField;
+        private System.Nullable<int> CarIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CostField;
+        private CarRentalUI.CarRentalServiceReference.Client ClientField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int DiscountField;
+        private System.Nullable<int> ClientIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CarRentalUI.CarRentalServiceReference.Employee EmployeeField;
+        private System.Nullable<int> DropOffLocationIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int EmployeeIDField;
+        private System.Nullable<System.DateTime> EndDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int KmsDrivenField;
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime RentalDateField;
+        private CarRentalUI.CarRentalServiceReference.Location LocationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int RentalIDField;
+        private CarRentalUI.CarRentalServiceReference.Location Location1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CarRentalUI.CarRentalServiceReference.Reservation ReservationField;
+        private System.Nullable<int> PickUpLocationIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ReservationIDField;
+        private CarRentalUI.CarRentalServiceReference.Rental[] RentalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int StatusField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TotalField;
+        private System.Nullable<System.DateTime> StartDateField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -972,7 +684,529 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Advance {
+        public CarRentalUI.CarRentalServiceReference.Car Car {
+            get {
+                return this.CarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CarField, value) != true)) {
+                    this.CarField = value;
+                    this.RaisePropertyChanged("Car");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CarId {
+            get {
+                return this.CarIdField;
+            }
+            set {
+                if ((this.CarIdField.Equals(value) != true)) {
+                    this.CarIdField = value;
+                    this.RaisePropertyChanged("CarId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CarRentalUI.CarRentalServiceReference.Client Client {
+            get {
+                return this.ClientField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClientField, value) != true)) {
+                    this.ClientField = value;
+                    this.RaisePropertyChanged("Client");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ClientId {
+            get {
+                return this.ClientIdField;
+            }
+            set {
+                if ((this.ClientIdField.Equals(value) != true)) {
+                    this.ClientIdField = value;
+                    this.RaisePropertyChanged("ClientId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> DropOffLocationId {
+            get {
+                return this.DropOffLocationIdField;
+            }
+            set {
+                if ((this.DropOffLocationIdField.Equals(value) != true)) {
+                    this.DropOffLocationIdField = value;
+                    this.RaisePropertyChanged("DropOffLocationId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> EndDate {
+            get {
+                return this.EndDateField;
+            }
+            set {
+                if ((this.EndDateField.Equals(value) != true)) {
+                    this.EndDateField = value;
+                    this.RaisePropertyChanged("EndDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CarRentalUI.CarRentalServiceReference.Location Location {
+            get {
+                return this.LocationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LocationField, value) != true)) {
+                    this.LocationField = value;
+                    this.RaisePropertyChanged("Location");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CarRentalUI.CarRentalServiceReference.Location Location1 {
+            get {
+                return this.Location1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Location1Field, value) != true)) {
+                    this.Location1Field = value;
+                    this.RaisePropertyChanged("Location1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> PickUpLocationId {
+            get {
+                return this.PickUpLocationIdField;
+            }
+            set {
+                if ((this.PickUpLocationIdField.Equals(value) != true)) {
+                    this.PickUpLocationIdField = value;
+                    this.RaisePropertyChanged("PickUpLocationId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CarRentalUI.CarRentalServiceReference.Rental[] Rental {
+            get {
+                return this.RentalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RentalField, value) != true)) {
+                    this.RentalField = value;
+                    this.RaisePropertyChanged("Rental");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> StartDate {
+            get {
+                return this.StartDateField;
+            }
+            set {
+                if ((this.StartDateField.Equals(value) != true)) {
+                    this.StartDateField = value;
+                    this.RaisePropertyChanged("StartDate");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Client", Namespace="http://schemas.datacontract.org/2004/07/CarRentalServices.Model")]
+    [System.SerializableAttribute()]
+    public partial class Client : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdressLine1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdressLine2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> BirthdateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailAdressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdCardNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> LicenseIssueDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LicenseNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordHashField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhoneNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CarRentalUI.CarRentalServiceReference.Reservation[] ReservationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SaltField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SurNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ZipCodeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AdressLine1 {
+            get {
+                return this.AdressLine1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AdressLine1Field, value) != true)) {
+                    this.AdressLine1Field = value;
+                    this.RaisePropertyChanged("AdressLine1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AdressLine2 {
+            get {
+                return this.AdressLine2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AdressLine2Field, value) != true)) {
+                    this.AdressLine2Field = value;
+                    this.RaisePropertyChanged("AdressLine2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> Birthdate {
+            get {
+                return this.BirthdateField;
+            }
+            set {
+                if ((this.BirthdateField.Equals(value) != true)) {
+                    this.BirthdateField = value;
+                    this.RaisePropertyChanged("Birthdate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string City {
+            get {
+                return this.CityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CityField, value) != true)) {
+                    this.CityField = value;
+                    this.RaisePropertyChanged("City");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmailAdress {
+            get {
+                return this.EmailAdressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailAdressField, value) != true)) {
+                    this.EmailAdressField = value;
+                    this.RaisePropertyChanged("EmailAdress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IdCardNumber {
+            get {
+                return this.IdCardNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdCardNumberField, value) != true)) {
+                    this.IdCardNumberField = value;
+                    this.RaisePropertyChanged("IdCardNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LicenseIssueDate {
+            get {
+                return this.LicenseIssueDateField;
+            }
+            set {
+                if ((this.LicenseIssueDateField.Equals(value) != true)) {
+                    this.LicenseIssueDateField = value;
+                    this.RaisePropertyChanged("LicenseIssueDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LicenseNumber {
+            get {
+                return this.LicenseNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LicenseNumberField, value) != true)) {
+                    this.LicenseNumberField = value;
+                    this.RaisePropertyChanged("LicenseNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PasswordHash {
+            get {
+                return this.PasswordHashField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordHashField, value) != true)) {
+                    this.PasswordHashField = value;
+                    this.RaisePropertyChanged("PasswordHash");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PhoneNumber {
+            get {
+                return this.PhoneNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhoneNumberField, value) != true)) {
+                    this.PhoneNumberField = value;
+                    this.RaisePropertyChanged("PhoneNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CarRentalUI.CarRentalServiceReference.Reservation[] Reservation {
+            get {
+                return this.ReservationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReservationField, value) != true)) {
+                    this.ReservationField = value;
+                    this.RaisePropertyChanged("Reservation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Salt {
+            get {
+                return this.SaltField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SaltField, value) != true)) {
+                    this.SaltField = value;
+                    this.RaisePropertyChanged("Salt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SurName {
+            get {
+                return this.SurNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SurNameField, value) != true)) {
+                    this.SurNameField = value;
+                    this.RaisePropertyChanged("SurName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ZipCode {
+            get {
+                return this.ZipCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ZipCodeField, value) != true)) {
+                    this.ZipCodeField = value;
+                    this.RaisePropertyChanged("ZipCode");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Rental", Namespace="http://schemas.datacontract.org/2004/07/CarRentalServices.Model")]
+    [System.SerializableAttribute()]
+    public partial class Rental : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> AdvanceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> CostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> DiscountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CarRentalUI.CarRentalServiceReference.Employee EmployeeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> EmployeeIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> KmsDrivenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RentalCreateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CarRentalUI.CarRentalServiceReference.Reservation ReservationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ReservationIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> TotalField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Advance {
             get {
                 return this.AdvanceField;
             }
@@ -985,20 +1219,7 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Balance {
-            get {
-                return this.BalanceField;
-            }
-            set {
-                if ((this.BalanceField.Equals(value) != true)) {
-                    this.BalanceField = value;
-                    this.RaisePropertyChanged("Balance");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Cost {
+        public System.Nullable<decimal> Cost {
             get {
                 return this.CostField;
             }
@@ -1011,7 +1232,7 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Discount {
+        public System.Nullable<decimal> Discount {
             get {
                 return this.DiscountField;
             }
@@ -1037,20 +1258,33 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int EmployeeID {
+        public System.Nullable<int> EmployeeId {
             get {
-                return this.EmployeeIDField;
+                return this.EmployeeIdField;
             }
             set {
-                if ((this.EmployeeIDField.Equals(value) != true)) {
-                    this.EmployeeIDField = value;
-                    this.RaisePropertyChanged("EmployeeID");
+                if ((this.EmployeeIdField.Equals(value) != true)) {
+                    this.EmployeeIdField = value;
+                    this.RaisePropertyChanged("EmployeeId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int KmsDriven {
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> KmsDriven {
             get {
                 return this.KmsDrivenField;
             }
@@ -1063,27 +1297,14 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime RentalDate {
+        public byte[] RentalCreate {
             get {
-                return this.RentalDateField;
+                return this.RentalCreateField;
             }
             set {
-                if ((this.RentalDateField.Equals(value) != true)) {
-                    this.RentalDateField = value;
-                    this.RaisePropertyChanged("RentalDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int RentalID {
-            get {
-                return this.RentalIDField;
-            }
-            set {
-                if ((this.RentalIDField.Equals(value) != true)) {
-                    this.RentalIDField = value;
-                    this.RaisePropertyChanged("RentalID");
+                if ((object.ReferenceEquals(this.RentalCreateField, value) != true)) {
+                    this.RentalCreateField = value;
+                    this.RaisePropertyChanged("RentalCreate");
                 }
             }
         }
@@ -1102,20 +1323,20 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ReservationID {
+        public System.Nullable<int> ReservationId {
             get {
-                return this.ReservationIDField;
+                return this.ReservationIdField;
             }
             set {
-                if ((this.ReservationIDField.Equals(value) != true)) {
-                    this.ReservationIDField = value;
-                    this.RaisePropertyChanged("ReservationID");
+                if ((this.ReservationIdField.Equals(value) != true)) {
+                    this.ReservationIdField = value;
+                    this.RaisePropertyChanged("ReservationId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Status {
+        public System.Nullable<bool> Status {
             get {
                 return this.StatusField;
             }
@@ -1128,7 +1349,7 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Total {
+        public System.Nullable<decimal> Total {
             get {
                 return this.TotalField;
             }
@@ -1152,7 +1373,7 @@ namespace CarRentalUI.CarRentalServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Employee", Namespace="http://schemas.datacontract.org/2004/07/CarRentalServices")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Employee", Namespace="http://schemas.datacontract.org/2004/07/CarRentalServices.Model")]
     [System.SerializableAttribute()]
     public partial class Employee : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -1160,16 +1381,19 @@ namespace CarRentalUI.CarRentalServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> AdminStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailAdressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int EmployeeIDField;
+        private string FirstNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FullNameField;
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] PasswordHashField;
+        private string PasswordHashField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PhoneNumberField;
@@ -1178,7 +1402,10 @@ namespace CarRentalUI.CarRentalServiceReference {
         private CarRentalUI.CarRentalServiceReference.Rental[] RentalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Guid SaltField;
+        private string SaltField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SurNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UserNameField;
@@ -1190,6 +1417,19 @@ namespace CarRentalUI.CarRentalServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> AdminStatus {
+            get {
+                return this.AdminStatusField;
+            }
+            set {
+                if ((this.AdminStatusField.Equals(value) != true)) {
+                    this.AdminStatusField = value;
+                    this.RaisePropertyChanged("AdminStatus");
+                }
             }
         }
         
@@ -1207,33 +1447,33 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int EmployeeID {
+        public string FirstName {
             get {
-                return this.EmployeeIDField;
+                return this.FirstNameField;
             }
             set {
-                if ((this.EmployeeIDField.Equals(value) != true)) {
-                    this.EmployeeIDField = value;
-                    this.RaisePropertyChanged("EmployeeID");
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FullName {
+        public int Id {
             get {
-                return this.FullNameField;
+                return this.IdField;
             }
             set {
-                if ((object.ReferenceEquals(this.FullNameField, value) != true)) {
-                    this.FullNameField = value;
-                    this.RaisePropertyChanged("FullName");
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] PasswordHash {
+        public string PasswordHash {
             get {
                 return this.PasswordHashField;
             }
@@ -1272,14 +1512,27 @@ namespace CarRentalUI.CarRentalServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Guid Salt {
+        public string Salt {
             get {
                 return this.SaltField;
             }
             set {
-                if ((this.SaltField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.SaltField, value) != true)) {
                     this.SaltField = value;
                     this.RaisePropertyChanged("Salt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SurName {
+            get {
+                return this.SurNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SurNameField, value) != true)) {
+                    this.SurNameField = value;
+                    this.RaisePropertyChanged("SurName");
                 }
             }
         }
