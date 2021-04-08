@@ -56,7 +56,6 @@ namespace CarRentalServices
            
            using (var ctx = new CarRentalModel())
            {
-
                ctx.Car.Add(car);
                return ctx.SaveChanges();
            }

@@ -1,0 +1,19 @@
+Megvalósítandó funkciók:
+	WPF-ben:
+		Admin Employee-> 
+			Employee-t, Location-t tud felvenni, módosítani, törölni 
+			+ Mindent amit egy Employee tud
+		Employee-> 
+			Bejelentkezés
+			Client, Car, CarCategory -> új felvétel, módosítás, törlés
+			Keresés különböző szempontok alapján		
+			Kölcsönzés felvétele, módosítása
+			Számla nyomtatása
+	Web App-ban:
+		Client->
+			Felhasználói fiók létrehozása
+			Bejelentkezés
+			Elérhető autók listázása
+			Keresés szempontok alapján
+			Foglalás leadása
+			Meg nem kezdett foglalásainak törlése
